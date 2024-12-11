@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 
+import '../constants.dart';
+
 class Bird extends SpriteComponent {
   /*
    
@@ -9,12 +11,12 @@ class Bird extends SpriteComponent {
 
    */
   //initialialize bird position and size
-  Bird():super(position: Vector2(100, 100),size: Vector2(60,40));
+  Bird():super(
+    position: Vector2(BirdStartX, BirdStartY),
+    size: Vector2(birdWidth,birdHeight));
 
   //physically world properties
   double velocity = 0;
-  final double gravity = 800;
-  final double jumpStrength = -300;
 
 
   /* 
