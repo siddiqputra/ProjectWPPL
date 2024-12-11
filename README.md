@@ -5,7 +5,7 @@ Game Flappy Bird
 ## Kelompok Mugiwara (5)
 
 - Fachri Yumanda Putra
-- Nurmawaddah
 - Mastura
+- Nurmawaddah
 - Muhammad Fadhilla
 - Siddiq Ananda Putra
