@@ -11,15 +11,17 @@ class Bird extends SpriteComponent {
   */
 
   // Inisialisasi posisi awal dan ukuran burung.
-  Bird() : super(
-    position: Vector2(BirdStartX, BirdStartY),
-    size: Vector2(birdWidth, birdHeight),
-  );
+  Bird()
+      : super(
+          position: Vector2(BirdStartX, BirdStartY),
+          size: Vector2(birdWidth, birdHeight),
+        );
 
   // Properti untuk mendefinisikan dunia fisik burung.
   double velocity = 0; // Kecepatan vertikal burung.
   final double gravity = 200; // Gaya gravitasi yang diterapkan ke burung.
-  final double jumpStrength = -300; // Kekuatan lompatan burung (negatif ke atas).
+  final double jumpStrength =
+      -300; // Kekuatan lompatan burung (negatif ke atas).
 
   /*
     MEMUAT SPRITE BURUNG
