@@ -1,52 +1,75 @@
+// Mengimpor pustaka Dart untuk operasi asynchronous dan timer.
 import 'dart:async';
 
+// Mengimpor komponen dari Flame untuk membuat objek game.
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-
+import 'package:project/components/ground.dart';
+import 'package:project/game.dart';
 import '../constants.dart';
 
-class Bird extends SpriteComponent {
+class Bird extends SpriteComponent with CollisionCallbacks {
   /*
    
   INIT BIRD
 
    */
-  //initialialize bird position and size
-  Bird():super(
-    position: Vector2(BirdStartX, BirdStartY),
-    size: Vector2(birdWidth,birdHeight));
+  // Inisialisasi posisi awal dan ukuran burung.
+  Bird()
+      : super(
+            position: Vector2(birdStartX, birdStartY),
+            size: Vector2(birdWidth, birdHeight));
 
-  //physically world properties
+  // Properti untuk mendefinisikan dunia fisik burung.
   double velocity = 0;
-
 
   /* 
     LOAD   
    */
   @override
   FutureOr<void> onLoad() async {
-    sprite = await Sprite.load('/aasets/images/bird.png');
-}
+    // Memuat sprite burung dari file gambar.
+    sprite = await Sprite.load('bird.png');
 
-  /* 
-
-  JUMP/FLAP
-
-   */
-  void flap(){
-    velocity = jumpStrength;
+    //tambahkan kotak tabrakan
+    add(RectangleHitbox());
   }
 
   /* 
-  UPDATE EVERY SECOND
+
+    LOMPAT / KEPERKAN SAYAP (FLAP)
+
    */
+  void flap() {
+    velocity = jumpStrength;
+  }
+
+  /*
+    PEMBARUAN TIAP FRAME
+  */
 
   @override
   void update(double dt) {
-    //apply gravity
+    // Menerapkan gravitasi ke kecepatan burung.
     velocity += gravity * dt;
-   
-   //UPADTE BIRD POSITION BASED ON CURRENT VELOCITY
-   position.y += velocity * dt;
 
+    // Memperbarui posisi burung berdasarkan kecepatan saat ini.
+    position.y += velocity * dt;
+  }
 
-}}
+  /*
+
+  TABRAKAN -> dengan objek lain
+
+*/
+
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
+
+    //check if bird collide with ground
+    if (other is Ground) {
+      (parent as FlappyBirdGame).gameOver();
+    }
+  }
+}
