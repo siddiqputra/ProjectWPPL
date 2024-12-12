@@ -1,16 +1,19 @@
 # projectwppl
 
-A new Flutter project.
+Game Flappy Bird
 
-## Getting Started
+## Kelompok Mugiwara (5)
 
-This project is a starting point for a Flutter application.
+1. Nurma (Getting Started, Creating Assets, Building the Game)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. Mastura (Adding the Bird, Adding Constants)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+3. Fahri (Adding a Background) 
+    Tugas dan tanggung jawab : menambahkan file bacground dan ground serta tambahkan fungsinya ke dalam main.dart
+
+4. Siddiq (Pipes)
+    Tugas dan tanggung jawab : menambahkan file pipes (pipa) dan menambahkan fungsinya ke dalam main.dart
+
+5. Fadil (Score)

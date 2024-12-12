@@ -4,13 +4,19 @@ import 'dart:async';
 // Mengimpor komponen dari Flame untuk membuat objek game.
 import 'package:flame/components.dart';
 
+<<<<<<< HEAD
 // Mendefinisikan kelas Bird yang merupakan subclass dari SpriteComponent.
 // SpriteComponent digunakan untuk menampilkan gambar sebagai elemen dalam game.
+=======
+import '../constants.dart';
+
+>>>>>>> 2d5595c8838bfa7332e170da5e6f357631aac882
 class Bird extends SpriteComponent {
   /*
     INISIALISASI BURUNG
   */
 
+<<<<<<< HEAD
   // Inisialisasi posisi awal dan ukuran burung.
   Bird() : super(
           position: Vector2(100, 100), // Posisi awal burung (x, y).
@@ -21,15 +27,30 @@ class Bird extends SpriteComponent {
   double velocity = 0; // Kecepatan vertikal burung.
   final double gravity = 200; // Gaya gravitasi yang diterapkan ke burung.
   final double jumpStrength = -300; // Kekuatan lompatan burung (negatif ke atas).
+=======
+   */
+  //initialialize bird position and size
+  Bird():super(
+    position: Vector2(BirdStartX, BirdStartY),
+    size: Vector2(birdWidth,birdHeight));
+
+  //physically world properties
+  double velocity = 0;
+>>>>>>> 2d5595c8838bfa7332e170da5e6f357631aac882
 
   /*
     MEMUAT SPRITE BURUNG
   */
   @override
   FutureOr<void> onLoad() async {
+<<<<<<< HEAD
     // Memuat sprite burung dari file gambar.
     sprite = await Sprite.load('bird.png');
   }
+=======
+    sprite = await Sprite.load('/aasets/images/bird.png');
+}
+>>>>>>> 2d5595c8838bfa7332e170da5e6f357631aac882
 
   /*
     LOMPAT / KEPERKAN SAYAP (FLAP)
