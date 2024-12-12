@@ -5,12 +5,13 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 // Mengimpor paket flutter untuk pengembangan game.
 import 'package:flutter/material.dart';
-import 'package:project/components/background.dart';
 // Mengimpor kelas Bird dari file komponen dalam proyek.
+import 'package:project/components/background.dart';
 import 'package:project/components/bird.dart';
 import 'package:project/components/ground.dart';
 import 'package:project/components/pipe.dart';
 import 'package:project/components/pipe_manager.dart';
+import 'package:project/components/score.dart';
 import 'package:project/constants.dart';
 
 class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
@@ -23,11 +24,12 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
    - score: Skor pemain selama permainan.
   */
 
-  // Deklarasi variabel `bird` untuk menyimpan instance dari komponen Bird.
+  // Deklarasi variabel
   late Bird bird;
   late Background background;
   late Ground ground;
   late PipeManager pipeManager;
+  late ScoreText scoreText;
 
   /*
     Metode onload dipanggil saat game dimuat.
@@ -50,6 +52,10 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
     // Memuat pipa
     pipeManager = PipeManager();
     add(pipeManager);
+
+    //memuat score
+    scoreText = ScoreText();
+    add(scoreText);
   }
 
   /*
@@ -61,6 +67,18 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   @override
   void onTap() {
     bird.flap();
+  }
+
+  /*
+
+  SCORE
+  
+  */
+
+  int score = 0;
+
+  void incrementScore() {
+    score += 1;
   }
 
   /*
@@ -83,6 +101,7 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
       context: buildContext!,
       builder: (context) => AlertDialog(
         title: const Text("Game Over"),
+        content: Text("High Score: $score"),
         actions: [
           TextButton(
               onPressed: () {
@@ -92,7 +111,8 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
                 // Mengatur ulang permainan
                 resetGame();
               },
-              child: const Text("Restart"))
+              child: const Text("Restart"),
+              )
         ],
       ),
     );
@@ -101,6 +121,7 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   void resetGame() {
     bird.position = Vector2(birdStartX, birdStartY);
     bird.velocity = 0;
+    score = 0;
     isGameOver = false;
     // Remove all pipes from the game
     children.whereType<Pipe>().forEach((pipe) => pipe.removeFromParent());
