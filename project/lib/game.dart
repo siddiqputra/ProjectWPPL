@@ -3,6 +3,7 @@ import 'dart:async';
 // Mengimpor paket Flame untuk pengembangan game.
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+// Mengimpor paket flutter untuk pengembangan game.
 import 'package:flutter/material.dart';
 import 'package:project/components/background.dart';
 // Mengimpor kelas Bird dari file komponen dalam proyek.
