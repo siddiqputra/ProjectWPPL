@@ -8,7 +8,7 @@ Game Flappy Bird
 
 
 2. Mastura (Adding the Bird, Adding Constants)
-
+    tugas dan tanggung jawab : membuat file constants.dart dan memidahkan fungsi gravity dan jumpstrength yang ada di dalam file bird.dart kedalam file constanst.dart
 
 3. Fahri (Adding a Background) 
     Tugas dan tanggung jawab : menambahkan file bacground dan ground serta tambahkan fungsinya ke dalam main.dart
