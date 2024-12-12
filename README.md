@@ -14,6 +14,6 @@ Game Flappy Bird
     Tugas dan tanggung jawab : menambahkan file bacground dan ground serta tambahkan fungsinya ke dalam main.dart
 
 4. Siddiq (Pipes)
-
+    Tugas dan tanggung jawab : menambahkan file pipes (pipa) dan menambahkan fungsinya ke dalam main.dart
 
 5. Fadil (Score)
