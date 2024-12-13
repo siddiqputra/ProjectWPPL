@@ -6,7 +6,7 @@ import '../game.dart';
 
 class Pipe extends SpriteComponent
     with CollisionCallbacks, HasGameRef<FlappyBirdGame> {
-  // determine if the pipe is top or bottom
+  // tentukan apakah pipanya atas atau bawah
   final bool isTopPipe;
 
   bool scored = false;
@@ -23,10 +23,10 @@ class Pipe extends SpriteComponent
 
   @override
   FutureOr<void> onLoad() async {
-    // load sprite image
+    // memuat gambar sprite
     sprite = await Sprite.load(isTopPipe ? 'pipe2.png' : 'pipeup.png');
 
-    // add hit box for collision
+    // tambahkan kotak hit untuk tabrakan
     add(RectangleHitbox());
 
     /*
@@ -38,10 +38,10 @@ class Pipe extends SpriteComponent
 
   @override
   void update(double dt) {
-    // scroll pipe to left
+   // gulir pipa ke kiri
     position.x -= groundScrollingSpeed * dt;
 
-    //check bird has passed the pipe
+    //periksa burung telah melewati pipa
     if (!scored && position.x + size.x < gameRef.bird.position.x) {
       scored = true;
 
@@ -51,7 +51,7 @@ class Pipe extends SpriteComponent
       }
     }
 
-    // remove pipe if it goes off the screen
+    // hapus pipa jika keluar dari layar
     if (position.x + size.x <= 0) {
       removeFromParent();
     }

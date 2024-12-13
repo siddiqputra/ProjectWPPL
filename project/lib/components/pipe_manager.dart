@@ -9,7 +9,7 @@ class PipeManager extends Component with HasGameRef<FlappyBirdGame> {
 
   UPDATE -> every second (dt)
 
-  We will continouslly spawn new pipes.
+  Kami akan terus menelurkan pipa-pipa baru.
 
   */
 
@@ -17,7 +17,7 @@ class PipeManager extends Component with HasGameRef<FlappyBirdGame> {
 
   @override
   void update(double dt) {
-    //gengerate new pipe at given interval
+   //buat pipa baru pada interval tertentu
     pipeSpawnTimer += dt;
 
     if (pipeSpawnTimer > pipeInterval) {
@@ -28,7 +28,7 @@ class PipeManager extends Component with HasGameRef<FlappyBirdGame> {
 
   /*
 
-  SPAWN NEW PIPE
+ MEMBUAT PIPA BARU
 
   */
 
@@ -37,19 +37,19 @@ class PipeManager extends Component with HasGameRef<FlappyBirdGame> {
 
     /*
 
-    CALCULATE PIPE HEIGHTS
+    HITUNG TINGGI PIPA
 
     */
 
-    //max possible height
+    //ketinggian maksimum
     final double maxPipeHeight =
         screenHeight - groundHeight - pipeGap - minPipeHeight;
 
-    // height of bottom pipe -> randomly select between min and max
+    // tinggi pipa bawah -> pilih secara acak antara min dan maks
     final double bottomPipeHeight =
         minPipeHeight + Random().nextDouble() * (maxPipeHeight - minPipeHeight);
 
-    // height of top pipe
+    // tinggi pipa atas
     final double topPipeHeight =
         screenHeight - groundHeight - bottomPipeHeight - pipeGap;
 

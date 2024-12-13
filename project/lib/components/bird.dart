@@ -23,9 +23,9 @@ class Bird extends SpriteComponent with CollisionCallbacks {
   // Properti untuk mendefinisikan dunia fisik burung.
   double velocity = 0;
 
-  /* 
-    LOAD   
-   */
+  /*
+    LOAD
+  */
   @override
   FutureOr<void> onLoad() async {
     // Memuat sprite burung dari file gambar.
@@ -67,12 +67,12 @@ class Bird extends SpriteComponent with CollisionCallbacks {
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollision(intersectionPoints, other);
 
-    //check if bird collide with ground
+    //periksa apakah burung bertabrakan dengan tanah
     if (other is Ground) {
       (parent as FlappyBirdGame).gameOver();
     }
 
-    //check if bird collide with pipes
+    //periksa apakah burung bertabrakan dengan pipa
     if (other is Pipe) {
       (parent as FlappyBirdGame).gameOver();
     }

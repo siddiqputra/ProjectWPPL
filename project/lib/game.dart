@@ -13,6 +13,7 @@ import 'package:project/components/pipe.dart';
 import 'package:project/components/pipe_manager.dart';
 import 'package:project/components/score.dart';
 import 'package:project/constants.dart';
+import 'package:project/main.dart';
 
 class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   /*
@@ -60,7 +61,7 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
 
   /*
 
-    TAP
+  TAP
 
   */
 
@@ -130,6 +131,29 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
               ),
             ),
             child: const Text("Restart"),
+          ),
+          // Tombol Menu (kembali ke halaman start)
+          TextButton(
+            onPressed: () {
+              // Menutup kotak dialog
+              Navigator.pop(context);
+
+              // Kembali ke halaman start atau reset game
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      StartScreen(), // Ganti dengan halaman start Anda
+                ),
+              );
+            },
+            style: TextButton.styleFrom(
+              side: const BorderSide(color: Colors.brown, width: 2),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            child: const Text("Menu"),
           ),
         ],
       ),

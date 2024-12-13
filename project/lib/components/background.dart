@@ -2,12 +2,12 @@ import 'dart:async';
 import 'package:flame/components.dart';
 
 class Background extends SpriteComponent {
-  //init background position and size
+//init posisi dan ukuran latar belakang
   Background(Vector2 size) : super(size: size, position: Vector2(0, 0));
 
   @override
   Future<void> onLoad() async {
-    //load background sprite image
+    //memuat gambar sprite latar belakang
     sprite = await Sprite.load('background.png');
   }
 }

@@ -21,10 +21,10 @@ class Ground extends SpriteComponent
     size = Vector2(2 * gameRef.size.x, groundHeight);
     position = Vector2(0, gameRef.size.y - groundHeight);
 
-    //load Ground sprite image
+    //memuat gambar sprite tanah
     sprite = await Sprite.load('ground.png');
 
-    //add a collision box
+    //tambahkan kotak tabrakan
     add(RectangleHitbox());
   }
 
@@ -36,11 +36,11 @@ class Ground extends SpriteComponent
 
   @override
   void update(double dt) {
-    //move ground to left
+    //pindah tanah ke kiri
     position.x -= groundScrollingSpeed * dt;
 
-    //resert ground if it goes off screen for infinite scroll
-    //if half has been passed
+    //resert ground jika keluar dari layar untuk scroll tak terbatas
+    //jika setengahnya telah dilewati
     if (position.x + size.x / 2 <= 0) {
       position.x = 0;
     }
