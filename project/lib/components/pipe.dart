@@ -24,7 +24,7 @@ class Pipe extends SpriteComponent
   @override
   FutureOr<void> onLoad() async {
     // load sprite image
-    sprite = await Sprite.load(isTopPipe ? 'pipe_top.png' : 'pipe_bottom.png');
+    sprite = await Sprite.load(isTopPipe ? 'pipe2.png' : 'pipeup.png');
 
     // add hit box for collision
     add(RectangleHitbox());

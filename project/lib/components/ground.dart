@@ -6,18 +6,18 @@ import '../game.dart';
 
 class Ground extends SpriteComponent
     with HasGameRef<FlappyBirdGame>, CollisionCallbacks {
-  //init background position and size
+  //inisiasi posisi dan ukuran background
   Ground() : super();
 
   /*
 
-  LOAD
+  MEMUAT
 
   */
 
   @override
   Future<void> onLoad() async {
-    //load background sprite image
+    //Memuat sprite gambar background
     size = Vector2(2 * gameRef.size.x, groundHeight);
     position = Vector2(0, gameRef.size.y - groundHeight);
 
