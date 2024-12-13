@@ -3,11 +3,14 @@ import 'dart:async';
 // Mengimpor paket Flame untuk pengembangan game.
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+// Mengimpor paket flutter untuk pengembangan game.
 import 'package:flutter/material.dart';
 import 'package:project/components/background.dart';
 // Mengimpor kelas Bird dari file komponen dalam proyek.
 import 'package:project/components/bird.dart';
 import 'package:project/components/ground.dart';
+import 'package:project/components/pipe.dart';
+import 'package:project/components/pipe_manager.dart';
 import 'package:project/constants.dart';
 
 class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
@@ -24,6 +27,7 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   late Bird bird;
   late Background background;
   late Ground ground;
+  late PipeManager pipeManager;
 
   /*
     Metode onload dipanggil saat game dimuat.
@@ -42,6 +46,10 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
     // Memuat tanah
     ground = Ground();
     add(ground);
+
+    // Memuat pipa
+    pipeManager = PipeManager();
+    add(pipeManager);
   }
 
   /*
@@ -94,6 +102,8 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
     bird.position = Vector2(birdStartX, birdStartY);
     bird.velocity = 0;
     isGameOver = false;
+    // Remove all pipes from the game
+    children.whereType<Pipe>().forEach((pipe) => pipe.removeFromParent());
     resumeEngine();
   }
 }

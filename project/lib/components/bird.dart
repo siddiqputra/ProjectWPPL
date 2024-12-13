@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:project/components/ground.dart';
+import 'package:project/components/pipe.dart';
 import 'package:project/game.dart';
 import '../constants.dart';
 
@@ -69,6 +70,11 @@ class Bird extends SpriteComponent with CollisionCallbacks {
 
     //check if bird collide with ground
     if (other is Ground) {
+      (parent as FlappyBirdGame).gameOver();
+    }
+
+    //check if bird collide with pipes
+    if (other is Pipe) {
       (parent as FlappyBirdGame).gameOver();
     }
   }
