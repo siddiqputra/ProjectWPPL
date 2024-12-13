@@ -103,6 +103,14 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
       builder: (context) => AlertDialog(
         title: const Text("Game Over"),
         content: Text("High Score: $score"),
+        shape: RoundedRectangleBorder(
+          borderRadius:
+              BorderRadius.circular(12), // Menambahkan sudut melengkung
+          side: const BorderSide(
+            color: Colors.brown, // Warna border
+            width: 2, // Ketebalan border
+          ),
+        ),
         actions: [
           TextButton(
             onPressed: () {
@@ -114,14 +122,15 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
             },
             style: TextButton.styleFrom(
               side: const BorderSide(
-                  color: Colors.black, width: 2), // Menambahkan border
+                  color: Colors.brown,
+                  width: 2), // Menambahkan border pada tombol
               shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(8), // Menambahkan radius pada border
+                borderRadius: BorderRadius.circular(
+                    8), // Menambahkan radius pada border tombol
               ),
             ),
             child: const Text("Restart"),
-          )
+          ),
         ],
       ),
     );
