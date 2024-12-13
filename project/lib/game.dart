@@ -99,20 +99,29 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
     // Tampilkan kotak dialog untuk pengguna
     showDialog(
       context: buildContext!,
+      barrierDismissible: false, // Menonaktifkan area di luar dialog
       builder: (context) => AlertDialog(
         title: const Text("Game Over"),
         content: Text("High Score: $score"),
         actions: [
           TextButton(
-              onPressed: () {
-                // Menutup kotak dialog
-                Navigator.pop(context);
+            onPressed: () {
+              // Menutup kotak dialog
+              Navigator.pop(context);
 
-                // Mengatur ulang permainan
-                resetGame();
-              },
-              child: const Text("Restart"),
-              )
+              // Mengatur ulang permainan
+              resetGame();
+            },
+            style: TextButton.styleFrom(
+              side: const BorderSide(
+                  color: Colors.black, width: 2), // Menambahkan border
+              shape: RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.circular(8), // Menambahkan radius pada border
+              ),
+            ),
+            child: const Text("Restart"),
+          )
         ],
       ),
     );
