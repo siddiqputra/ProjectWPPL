@@ -84,13 +84,25 @@ class StartScreen extends StatelessWidget {
                     );
                   },
                   style: TextButton.styleFrom(
+                    // Warna teks tombol
                     foregroundColor: Colors.lightGreenAccent,
+
+                    // Padding di dalam tombol, menentukan jarak horizontal dan vertikal teks
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 20),
+
+                    // Gaya teks tombol, seperti ukuran font
                     textStyle: const TextStyle(fontSize: 24),
+
+                    // Warna latar belakang tombol
                     backgroundColor: Colors.black,
+
+                    // Bentuk tombol dengan sudut membulat
                     shape: RoundedRectangleBorder(
+                      // Radius untuk sudut tombol (membulatkan sudut)
                       borderRadius: BorderRadius.circular(50),
+
+                      // Gaya garis tepi tombol, termasuk warna dan lebar garis
                       side: const BorderSide(
                           color: Colors.lightGreenAccent, width: 2),
                     ),
