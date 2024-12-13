@@ -1,6 +1,5 @@
 // Mengimpor pustaka Dart untuk operasi asynchronous dan timer.
 import 'dart:async';
-
 // Mengimpor komponen dari Flame untuk membuat objek game.
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -36,7 +35,7 @@ class Bird extends SpriteComponent with CollisionCallbacks {
     add(RectangleHitbox());
   }
 
-  /* 
+  /*
 
     LOMPAT / KEPERKAN SAYAP (FLAP)
 
