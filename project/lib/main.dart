@@ -42,9 +42,9 @@ class StartScreen extends StatelessWidget {
         children: [
           // Background GIF
           Positioned.fill(
-            child: Image.network(
-              'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2cwNTg4dWcwa3VsZThyNzAxOGtidjRveGFza2N3cWN3MXd1Mzl1OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/euuaA2cwLEUuI/giphy.gif',
-              fit: BoxFit.cover, // Sesuaikan ukuran dengan layar
+            child: Image.asset(
+              '/images/FB.gif', // Path GIF Anda
+              fit: BoxFit.cover, // Sesuaikan ukuran GIF dengan layar
             ),
           ),
           // Konten di atas background
